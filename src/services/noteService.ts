@@ -19,7 +19,7 @@ const api = axios.create({
 });
 
 export const fetchNotes = async ({ page = 1, perPage = 12, search = '' }: FetchNotesParams): Promise<FetchNotesResponse> => {
-    const response = await api.get('/notes', {
+    const response = await api.get<FetchNotesResponse>('/notes', {
         params: {
             page,
             perPage,
@@ -30,12 +30,12 @@ export const fetchNotes = async ({ page = 1, perPage = 12, search = '' }: FetchN
 }
 
 export const createNote = async (newNote: CreateNote): Promise<Note> => {
-    const response = await api.post('/notes', newNote);
+    const response = await api.post<Note>('/notes', newNote);
     return response.data;
 }
 
 export const deleteNote = async (noteId: string): Promise<Note> => {
-    const response = await api.delete(`/notes/${noteId}`);
+    const response = await api.delete<Note>(`/notes/${noteId}`);
     return response.data;
 }
 

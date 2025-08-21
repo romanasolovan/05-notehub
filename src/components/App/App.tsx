@@ -29,16 +29,16 @@ const App = () => {
     setQuery(query);
     setPage(1);
   };
-
+    
   return (
     <div className={css.app}>
       <header className={css.toolbar}>
         <SearchBox onChange={handleSearch} value={query} />
-        {isSuccess && data.totalPages > 1 && (
+        {isSuccess && data?.totalPages > 1 && (
           <Pagination
             page={page}
-            totalPages={data.totalPages}
-            currentPage={setPage}
+                      totalPages={data.totalPages}
+                      onPageChange={setPage}
           />
         )}
         <button onClick={() => setIsOpen(true)} className={css.button}>
@@ -47,7 +47,7 @@ const App = () => {
       </header>
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
-      {!!data && data.notes.length > 0 ? (
+      {!!data && data?.notes?.length > 0 ? (
         <NoteList notes={data.notes} />
       ) : query.trim() !== "" ? (
         <p className={css.noNotes}>No notes found.</p>
