@@ -4,7 +4,6 @@ import type { Note, CreateNote} from "../types/note";
 
 interface FetchNotesResponse {
     notes: Note[];
-    totalNotes: number;
     totalPages: number;
 }
 
