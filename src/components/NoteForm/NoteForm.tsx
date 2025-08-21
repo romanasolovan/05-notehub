@@ -2,8 +2,8 @@ import css from "./NoteForm.module.css";
 import { useFormik, } from "formik";
 import * as Yup from 'yup';
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import type { Note } from "../types/note";
-import { createNote} from "../services/noteService";
+import type { Note } from "../../types/note";
+import { createNote} from "../../services/noteService";
 
 interface NoteFormProp {
     onCancel: () => void;
